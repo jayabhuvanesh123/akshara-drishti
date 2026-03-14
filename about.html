@@ -1,179 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Learn about Akshara-Drishti — the technology, workflow, and research team behind AI-powered Indic script identification.">
-  <title>About | Akshara-Drishti</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — Akshara-Drishti</title>
+  <meta name="description" content="Learn about the Akshara-Drishti research project, its technology, methodology, and team." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ======== NAVIGATION ======== -->
-  <nav class="navbar" id="navbar">
+  <!-- Navbar -->
+  <nav class="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">Akshara-Drishti</a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="upload.html">Upload</a></li>
-        <li><a href="about.html" class="active">About</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="upload.html">Upload</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="about.html#contact">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- ======== ABOUT THE PROJECT ======== -->
-  <section class="section" style="padding-top: 140px;" id="about-project">
+  <!-- Section 1: About the Project -->
+  <section class="section" style="padding-top: calc(var(--nav-height) + 72px);">
     <div class="container">
-      <div class="gsap-reveal">
-        <span class="section-label">About the Project</span>
-        <h1 class="section-title">Akshara-Drishti</h1>
-        <div class="section-divider"></div>
-      </div>
-      <div class="about-content gsap-reveal">
-        <p>Across temples, monuments, and archaeological sites, thousands of ancient inscriptions preserve valuable knowledge about culture, governance, religion, and society. However, many of these scripts remain inaccessible to modern readers.</p>
-        <p>Akshara-Drishti aims to bridge this gap using artificial intelligence. The system analyzes images of inscriptions and identifies script patterns, helping users understand the meaning and historical significance of these ancient texts.</p>
-        <p>The project combines AI technologies with historical research to create a platform that supports students, researchers, historians, and cultural enthusiasts.</p>
-      </div>
+      <p class="section-label gsap-hidden">About the Project</p>
+      <h1 class="section-title gsap-hidden">Research Overview</h1>
+      <div class="divider gsap-hidden"></div>
+      <p class="section-text gsap-hidden">
+        Akshara-Drishti is a research initiative focused on recognizing ancient Indic scripts
+        using computer vision and machine learning techniques.
+      </p>
+      <p class="section-text gsap-hidden">
+        The project aims to help researchers, historians, and students interpret inscriptions
+        found in temples, monuments, and archaeological artifacts.
+      </p>
     </div>
   </section>
 
-  <!-- ======== HOW IT WORKS ======== -->
-  <section class="section" style="background: var(--bg-secondary);" id="how-it-works">
+  <!-- Section 2: How It Works -->
+  <section class="section">
     <div class="container">
-      <div class="gsap-reveal">
-        <span class="section-label">Process</span>
-        <h2 class="section-title">How It Works</h2>
-        <div class="section-divider"></div>
-      </div>
+      <p class="section-label gsap-hidden">Process</p>
+      <h2 class="section-title gsap-hidden">How It Works</h2>
+      <div class="divider gsap-hidden"></div>
       <div class="steps-grid">
-        <div class="step-card gsap-reveal">
-          <div class="step-number">01</div>
-          <h3>Capture</h3>
-          <p>Take a photo of an ancient inscription using your device camera.</p>
+        <div class="step-card gsap-hidden">
+          <p class="step-number">Step 1</p>
+          <p class="step-text">User uploads an image of an inscription.</p>
         </div>
-        <div class="step-card gsap-reveal">
-          <div class="step-number">02</div>
-          <h3>Upload</h3>
-          <p>Upload the image to the Akshara-Drishti platform for processing.</p>
+        <div class="step-card gsap-hidden">
+          <p class="step-number">Step 2</p>
+          <p class="step-text">The system preprocesses the image using digital restoration techniques.</p>
         </div>
-        <div class="step-card gsap-reveal">
-          <div class="step-number">03</div>
-          <h3>Analyze</h3>
-          <p>AI analyzes script patterns and matches them with database records.</p>
+        <div class="step-card gsap-hidden">
+          <p class="step-number">Step 3</p>
+          <p class="step-text">A convolutional neural network analyzes the script pattern.</p>
         </div>
-        <div class="step-card gsap-reveal">
-          <div class="step-number">04</div>
-          <h3>Discover</h3>
-          <p>Receive the identified script, translations, and historical information.</p>
+        <div class="step-card gsap-hidden">
+          <p class="step-number">Step 4</p>
+          <p class="step-text">The system predicts the script type and confidence score.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ======== TECHNOLOGY ======== -->
-  <section class="section" id="technology">
+  <!-- Section 3: Technology -->
+  <section class="section">
     <div class="container">
-      <div class="gsap-reveal">
-        <span class="section-label">Architecture</span>
-        <h2 class="section-title">Technology</h2>
-        <div class="section-divider"></div>
-      </div>
+      <p class="section-label gsap-hidden">Our Stack</p>
+      <h2 class="section-title gsap-hidden">Technology</h2>
+      <div class="divider gsap-hidden"></div>
       <div class="tech-grid">
-        <div class="tech-block gsap-reveal">
-          <h3>Frontend</h3>
-          <p>HTML, CSS, JavaScript</p>
+        <div class="tech-block gsap-hidden">
+          <p class="tech-block-title">Frontend</p>
+          <p class="tech-block-list">
+            HTML<br />CSS<br />JavaScript
+          </p>
         </div>
-        <div class="tech-block gsap-reveal">
-          <h3>AI Model</h3>
-          <p>TensorFlow CNN</p>
+        <div class="tech-block gsap-hidden">
+          <p class="tech-block-title">AI Model</p>
+          <p class="tech-block-list">
+            TensorFlow CNN
+          </p>
         </div>
-        <div class="tech-block gsap-reveal">
-          <h3>Digital Restoration</h3>
-          <p>CLAHE, Edge Enhancement, Noise Reduction</p>
+        <div class="tech-block gsap-hidden">
+          <p class="tech-block-title">Digital Restoration</p>
+          <p class="tech-block-list">
+            CLAHE<br />Edge Enhancement<br />Noise Reduction
+          </p>
         </div>
-        <div class="tech-block gsap-reveal">
-          <h3>Backend</h3>
-          <p>Django API</p>
+        <div class="tech-block gsap-hidden">
+          <p class="tech-block-title">Backend</p>
+          <p class="tech-block-list">
+            Django API
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ======== TEAM ======== -->
-  <section class="section" style="background: var(--bg-secondary);" id="team">
+  <!-- Section 4: Research Team -->
+  <section class="section">
     <div class="container">
-      <div class="gsap-reveal">
-        <span class="section-label">Our People</span>
-        <h2 class="section-title">Research Team</h2>
-        <div class="section-divider"></div>
-      </div>
+      <p class="section-label gsap-hidden">Our Team</p>
+      <h2 class="section-title gsap-hidden">Research Team</h2>
+      <div class="divider gsap-hidden"></div>
       <div class="team-grid">
-        <div class="team-card gsap-reveal">
-          <div class="team-avatar">AE</div>
-          <h3>Aniket Ekaksha Kumar</h3>
-          <p class="role">Researcher</p>
+        <div class="team-card gsap-hidden">
+          <p class="team-name">Aniket Ekaksha Kumar</p>
         </div>
-        <div class="team-card gsap-reveal">
-          <div class="team-avatar">AK</div>
-          <h3>Arun Krishnan</h3>
-          <p class="role">Researcher</p>
+        <div class="team-card gsap-hidden">
+          <p class="team-name">Arun Krishnan</p>
         </div>
-        <div class="team-card gsap-reveal">
-          <div class="team-avatar">EC</div>
-          <h3>Eshwar C</h3>
-          <p class="role">Researcher</p>
+        <div class="team-card gsap-hidden">
+          <p class="team-name">Eshwar C</p>
         </div>
-        <div class="team-card gsap-reveal">
-          <div class="team-avatar">HS</div>
-          <h3>HrishiKesh Sathish</h3>
-          <p class="role">Researcher</p>
+        <div class="team-card gsap-hidden">
+          <p class="team-name">HrishiKesh Sathish</p>
         </div>
-        <div class="team-card gsap-reveal">
-          <div class="team-avatar">JB</div>
-          <h3>JayaBhuvanesh</h3>
-          <p class="role">Researcher</p>
+        <div class="team-card gsap-hidden">
+          <p class="team-name">JayaBhuvanesh</p>
         </div>
-        <div class="team-card gsap-reveal">
-          <div class="team-avatar">KK</div>
-          <h3>Kamalesh Kumar</h3>
-          <p class="role">Researcher</p>
+        <div class="team-card gsap-hidden">
+          <p class="team-name">Kamalesh Kumar</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ======== FOOTER ======== -->
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <p class="section-label gsap-hidden">Get in Touch</p>
+      <h2 class="section-title gsap-hidden">Contact</h2>
+      <div class="divider gsap-hidden"></div>
+      <div class="contact-wrapper gsap-hidden">
+        <form id="contactForm" onsubmit="return false;">
+          <div class="form-group">
+            <label class="form-label" for="contactName">Name</label>
+            <input class="form-input" type="text" id="contactName" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactEmail">Email</label>
+            <input class="form-input" type="email" id="contactEmail" placeholder="Your email" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactMessage">Message</label>
+            <textarea class="form-textarea" id="contactMessage" placeholder="Your message" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary form-submit">Submit</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="nav-logo">Akshara-Drishti</a>
-          <p>AI-Powered Indic Script Identification System. Bridging ancient heritage with modern artificial intelligence.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="upload.html">Upload</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Akshara-Drishti &mdash; BhramiX Research Team. All rights reserved.</p>
-      </div>
+      <p>&copy; 2026 Akshara-Drishti Research Project</p>
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

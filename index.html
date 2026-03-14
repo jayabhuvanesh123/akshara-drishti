@@ -1,599 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Akshara-Drishti — An AI-powered system for identifying and interpreting ancient Indic inscriptions using image recognition and digital epigraphy.">
-<<<<<<< HEAD
-  <title>Akshara-Drishti | AI-Powered Indic Script Identification</title>
-  <link rel="stylesheet" href="style.css">
-=======
-  <title>Akshara-Drishti | AI-Powered Indic Script Intelligence System</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
->>>>>>> 0a62233f757146de3acacd04416c361d287f2a65
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Akshara-Drishti — AI Powered Indic Script Identification</title>
+  <meta name="description" content="Akshara-Drishti is a research project that uses artificial intelligence to identify ancient Indic scripts from images of inscriptions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ======== NAVIGATION ======== -->
-  <nav class="navbar" id="navbar">
+  <!-- Navbar -->
+  <nav class="navbar">
     <div class="container">
-<<<<<<< HEAD
       <a href="index.html" class="nav-logo">Akshara-Drishti</a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="upload.html">Upload</a></li>
-        <li><a href="about.html">About</a></li>
-=======
-      <a href="#" class="nav-logo">AKSHARA-DRISHTI</a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#technology">Technology</a></li>
-        <li><a href="#features">Features</a></li>
-        <li><a href="#how-it-works">How It Works</a></li>
-        <li><a href="#mobile-app">Mobile App</a></li>
-        <li><a href="#resources">Resources</a></li>
-        <li><a href="#team">Team</a></li>
->>>>>>> 0a62233f757146de3acacd04416c361d287f2a65
-        <li><a href="#contact">Contact</a></li>
-      </ul>
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="upload.html">Upload</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="about.html#contact">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- ======== HERO SECTION ======== -->
-<<<<<<< HEAD
-  <section class="hero" id="home">
-    <div class="container">
-      <div class="hero-content">
-        <h1 class="hero-title gsap-reveal" id="heroTitle">Akshara-Drishti</h1>
-        <p class="hero-subtitle gsap-reveal" id="heroSubtitle">AI Powered Indic Script Identification</p>
-        <p class="hero-desc gsap-reveal" id="heroDesc">
-          Akshara-Drishti is an intelligent platform that bridges ancient heritage with modern artificial intelligence. By capturing an image of an inscription, the system analyzes the script and retrieves translations, meanings, and historical insights from a digital epigraphy database.
-        </p>
-        <div class="hero-buttons gsap-reveal" id="heroButtons">
-          <a href="upload.html" class="btn btn-primary">Try Script Detection</a>
-          <a href="about.html" class="btn btn-secondary">Learn More</a>
-=======
-  <section class="hero section" id="home">
-    <div class="container">
-      <div class="hero-image reveal">
-        <div class="hero-image-inner">
-          <!-- Inline SVG: Ancient inscription art -->
-          <svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="stoneGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#2a2520;stop-opacity:1" />
-                <stop offset="100%" style="stop-color:#1a1510;stop-opacity:1" />
-              </linearGradient>
-              <filter id="engrave">
-                <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
-                <feOffset in="blur" dx="1" dy="1" result="offset"/>
-                <feComposite in="SourceGraphic" in2="offset" operator="over"/>
-              </filter>
-            </defs>
-            <rect width="400" height="500" fill="url(#stoneGrad)" rx="8"/>
-            <!-- Decorative border -->
-            <rect x="20" y="20" width="360" height="460" fill="none" stroke="#3a3530" stroke-width="2" rx="4"/>
-            <rect x="30" y="30" width="340" height="440" fill="none" stroke="#2a2520" stroke-width="1" rx="3"/>
-            <!-- Ancient script lines (stylized Brahmi/Sanskrit-inspired characters) -->
-            <g fill="#a3ff4f" opacity="0.7" filter="url(#engrave)">
-              <!-- Row 1 -->
-              <text x="50" y="80" font-family="serif" font-size="28" opacity="0.9">𑀅 𑀆 𑀇 𑀈 𑀉 𑀊</text>
-              <!-- Row 2 -->
-              <text x="50" y="120" font-family="serif" font-size="28" opacity="0.8">𑀋 𑀌 𑀍 𑀎 𑀏 𑀐</text>
-              <!-- Row 3 -->
-              <text x="50" y="160" font-family="serif" font-size="28" opacity="0.7">𑀑 𑀒 𑀓 𑀔 𑀕 𑀖</text>
-              <!-- Row 4 -->
-              <text x="50" y="200" font-family="serif" font-size="28" opacity="0.85">𑀗 𑀘 𑀙 𑀚 𑀛 𑀜</text>
-              <!-- Row 5 -->
-              <text x="50" y="240" font-family="serif" font-size="28" opacity="0.75">𑀝 𑀞 𑀟 𑀠 𑀡 𑀢</text>
-              <!-- Row 6 -->
-              <text x="50" y="280" font-family="serif" font-size="28" opacity="0.65">𑀣 𑀤 𑀥 𑀦 𑀧 𑀨</text>
-              <!-- Row 7 -->
-              <text x="50" y="320" font-family="serif" font-size="28" opacity="0.8">𑀩 𑀪 𑀫 𑀬 𑀭 𑀮</text>
-              <!-- Row 8 -->
-              <text x="50" y="360" font-family="serif" font-size="28" opacity="0.7">𑀯 𑀰 𑀱 𑀲 𑀳 𑀴</text>
-              <!-- Row 9 -->
-              <text x="50" y="400" font-family="serif" font-size="28" opacity="0.6">𑀵 𑀶 𑀷 𑀸 𑀹 𑀺</text>
-            </g>
-            <!-- Cracks and texture -->
-            <line x1="280" y1="0" x2="320" y2="120" stroke="#3a3530" stroke-width="0.5" opacity="0.5"/>
-            <line x1="100" y1="380" x2="60" y2="500" stroke="#3a3530" stroke-width="0.5" opacity="0.5"/>
-            <!-- Scanning overlay effect -->
-            <rect x="20" y="0" width="360" height="6" fill="url(#scanGrad)" opacity="0.6">
-              <animate attributeName="y" from="20" to="460" dur="3s" repeatCount="indefinite"/>
-            </rect>
-            <linearGradient id="scanGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" style="stop-color:transparent"/>
-              <stop offset="50%" style="stop-color:#a3ff4f"/>
-              <stop offset="100%" style="stop-color:transparent"/>
-            </linearGradient>
-          </svg>
-        </div>
-      </div>
-
-      <div class="hero-content">
-        <div class="hero-badge reveal">
-          <span class="dot"></span>
-          AI Research Project
-        </div>
-        <h1 class="hero-title reveal reveal-delay-1">Akshara-Drishti</h1>
-        <p class="hero-subtitle reveal reveal-delay-2">AI-Powered Indic Script Intelligence System</p>
-        <p class="hero-desc reveal reveal-delay-3">
-          Akshara-Drishti is an intelligent platform that bridges ancient heritage with modern artificial intelligence. By capturing an image of an inscription, the system analyzes the script and retrieves translations, meanings, and historical insights from a digital epigraphy database.
-        </p>
-        <div class="hero-buttons reveal reveal-delay-4">
-          <a href="#resources" class="btn btn-primary">
-            <i class="fas fa-database"></i> Explore the Database
-          </a>
-          <a href="#how-it-works" class="btn btn-secondary">
-            <i class="fas fa-upload"></i> Upload an Inscription
-          </a>
-        </div>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title gsap-hidden" id="heroTitle">Akshara-Drishti</h1>
+      <p class="hero-subtitle gsap-hidden" id="heroSubtitle">AI Powered Indic Script Identification</p>
+      <p class="hero-description gsap-hidden" id="heroDesc">
+        Akshara-Drishti is a research project that explores the use of artificial intelligence
+        to identify ancient Indic scripts from images of inscriptions found on monuments, temples,
+        and archaeological artifacts.
+      </p>
+      <div class="hero-buttons gsap-hidden" id="heroCta">
+        <a href="upload.html" class="btn-primary">Try Script Detection</a>
+        <a href="upload.html" class="btn-secondary">Upload Inscription</a>
       </div>
     </div>
   </section>
 
-  <!-- ======== ABOUT SECTION ======== -->
-  <section class="about section" id="about">
+  <!-- Features -->
+  <section class="section">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">About the Project</span>
-        <h2 class="section-title">About Akshara-Drishti</h2>
-      </div>
-      <div class="about-grid">
-        <div class="about-card reveal reveal-delay-1">
-          <div class="card-icon"><i class="fas fa-landmark"></i></div>
-          <p>Across temples, monuments, and archaeological sites, thousands of ancient inscriptions preserve valuable knowledge about culture, governance, religion, and society. However, many of these scripts remain inaccessible to modern readers.</p>
-        </div>
-        <div class="about-card reveal reveal-delay-2">
-          <div class="card-icon"><i class="fas fa-brain"></i></div>
-          <p>Akshara-Drishti aims to bridge this gap using artificial intelligence. The system analyzes images of inscriptions and identifies script patterns, helping users understand the meaning and historical significance of these ancient texts.</p>
-        </div>
-        <div class="about-card reveal reveal-delay-3" style="grid-column: 1 / -1;">
-          <div class="card-icon"><i class="fas fa-users"></i></div>
-          <p>The project combines AI technologies with historical research to create a platform that supports students, researchers, historians, and cultural enthusiasts. Our goal is to make ancient knowledge accessible to everyone through the power of modern technology.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== TECHNOLOGY SECTION ======== -->
-  <section class="section" id="technology">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Our Stack</span>
-        <h2 class="section-title">Technology Behind Akshara-Drishti</h2>
-        <p class="section-desc">Cutting-edge AI and computer vision technologies powering ancient script recognition.</p>
-      </div>
-      <div class="tech-grid">
-        <div class="tech-card reveal reveal-delay-1">
-          <div class="tech-icon"><i class="fas fa-robot"></i></div>
-          <h3>Artificial Intelligence</h3>
-          <p>Intelligent pattern recognition engine</p>
-        </div>
-        <div class="tech-card reveal reveal-delay-2">
-          <div class="tech-icon"><i class="fas fa-eye"></i></div>
-          <h3>Computer Vision</h3>
-          <p>Advanced image analysis pipeline</p>
-        </div>
-        <div class="tech-card reveal reveal-delay-3">
-          <div class="tech-icon"><i class="fas fa-network-wired"></i></div>
-          <h3>Deep Learning Models</h3>
-          <p>Neural networks for script classification</p>
-        </div>
-        <div class="tech-card reveal reveal-delay-4">
-          <div class="tech-icon"><i class="fas fa-camera"></i></div>
-          <h3>Image Recognition</h3>
-          <p>Real-time inscription detection</p>
-        </div>
-        <div class="tech-card reveal reveal-delay-5">
-          <div class="tech-icon"><i class="fas fa-database"></i></div>
-          <h3>Digital Epigraphy Database</h3>
-          <p>Curated archive of ancient scripts</p>
-        </div>
-        <div class="tech-card reveal reveal-delay-6">
-          <div class="tech-icon"><i class="fas fa-language"></i></div>
-          <h3>Natural Language Processing</h3>
-          <p>Translation and semantic analysis</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== FEATURES SECTION ======== -->
-  <section class="features section" id="features">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Capabilities</span>
-        <h2 class="section-title">Key Features of Akshara-Drishti</h2>
-        <p class="section-desc">A comprehensive platform for inscription analysis, translation, and historical exploration.</p>
-      </div>
+      <p class="section-label gsap-hidden">Capabilities</p>
+      <h2 class="section-title gsap-hidden">What Makes It Unique</h2>
       <div class="features-grid">
-        <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-card gsap-hidden">
           <span class="feature-number">01</span>
-          <div class="feature-icon"><i class="fas fa-image"></i></div>
-          <h3>Image-Based Inscription Recognition</h3>
-          <p>Users capture or upload a photo of an inscription for instant AI-powered analysis.</p>
+          <p class="feature-title">Script Recognition</p>
+          <p class="feature-desc">Identify ancient writing systems like Brahmi, Tamil, Grantha, and Devanagari from a single photograph.</p>
         </div>
-        <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-card gsap-hidden">
           <span class="feature-number">02</span>
-          <div class="feature-icon"><i class="fas fa-fingerprint"></i></div>
-          <h3>Automatic Script Identification</h3>
-          <p>AI detects the type of script and compares it with known inscription databases.</p>
+          <p class="feature-title">Image Restoration</p>
+          <p class="feature-desc">Digital preprocessing restores weathered inscriptions using CLAHE, edge enhancement, and noise reduction.</p>
         </div>
-        <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-card gsap-hidden">
           <span class="feature-number">03</span>
-          <div class="feature-icon"><i class="fas fa-language"></i></div>
-          <h3>Translation & Interpretation</h3>
-          <p>The system provides translated text and contextual meaning of the inscription.</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-4">
-          <span class="feature-number">04</span>
-          <div class="feature-icon"><i class="fas fa-clock-rotate-left"></i></div>
-          <h3>Historical Context</h3>
-          <p>Users receive background information about the inscription's era, region, and significance.</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-5">
-          <span class="feature-number">05</span>
-          <div class="feature-icon"><i class="fas fa-archive"></i></div>
-          <h3>Digital Heritage Archive</h3>
-          <p>Explore categorized inscriptions across regions and time periods in our digital library.</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-6">
-          <span class="feature-number">06</span>
-          <div class="feature-icon"><i class="fas fa-graduation-cap"></i></div>
-          <h3>Educational Exploration</h3>
-          <p>Useful for students, historians, and researchers exploring ancient Indic heritage.</p>
+          <p class="feature-title">Confidence Scoring</p>
+          <p class="feature-desc">Each prediction comes with a confidence metric, helping researchers assess the reliability of the classification.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ======== HOW IT WORKS SECTION ======== -->
-  <section class="section" id="how-it-works">
+  <!-- How It Works -->
+  <section class="section">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Process</span>
-        <h2 class="section-title">How It Works</h2>
-        <p class="section-desc">Four simple steps from capturing an inscription to understanding its meaning.</p>
-      </div>
-      <div class="steps-grid">
-        <div class="step-card reveal reveal-delay-1">
-          <div class="step-number">01</div>
-          <div class="step-icon"><i class="fas fa-camera-retro"></i></div>
-          <h3>Capture</h3>
-          <p>Take a photo of an ancient inscription using your device's camera.</p>
+      <p class="section-label gsap-hidden">Process</p>
+      <h2 class="section-title gsap-hidden">How It Works</h2>
+      <div class="steps-timeline gsap-hidden">
+        <div class="step-item">
+          <div class="step-circle">01</div>
+          <p class="step-item-title">Capture</p>
+          <p class="step-item-text">Photograph an inscription from a monument or artifact.</p>
         </div>
-        <div class="step-card reveal reveal-delay-2">
-          <div class="step-number">02</div>
-          <div class="step-icon"><i class="fas fa-cloud-arrow-up"></i></div>
-          <h3>Upload</h3>
-          <p>Upload the image to the Akshara-Drishti system for processing.</p>
+        <div class="step-item">
+          <div class="step-circle">02</div>
+          <p class="step-item-title">Upload</p>
+          <p class="step-item-text">Upload the image through the research interface.</p>
         </div>
-        <div class="step-card reveal reveal-delay-3">
-          <div class="step-number">03</div>
-          <div class="step-icon"><i class="fas fa-microchip"></i></div>
-          <h3>Analyze</h3>
-          <p>AI analyzes script patterns and matches them with database records.</p>
+        <div class="step-item">
+          <div class="step-circle">03</div>
+          <p class="step-item-title">Analyze</p>
+          <p class="step-item-text">A CNN model processes and classifies the script pattern.</p>
         </div>
-        <div class="step-card reveal reveal-delay-4">
-          <div class="step-number">04</div>
-          <div class="step-icon"><i class="fas fa-scroll"></i></div>
-          <h3>Discover</h3>
-          <p>Receive translations, meaning, and historical information instantly.</p>
+        <div class="step-item">
+          <div class="step-circle">04</div>
+          <p class="step-item-title">Discover</p>
+          <p class="step-item-text">Get the predicted script type with a confidence score.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ======== MOBILE APP SECTION ======== -->
-  <section class="mobile-app section" id="mobile-app">
+  <!-- Technology -->
+  <section class="section">
     <div class="container">
-      <div class="mobile-grid">
-        <div class="phone-mockup reveal">
-          <div class="phone-frame">
-            <div class="phone-notch"></div>
-            <div class="phone-screen">
-              <p>Akshara-Drishti</p>
-              <div class="scan-icon"><i class="fas fa-expand"></i></div>
-              <div class="scan-lines"></div>
-              <p style="opacity:0.5; font-size:0.5rem;">Scanning Inscription...</p>
-              <!-- Mini script characters -->
-              <svg viewBox="0 0 200 60" width="160" style="opacity:0.4;">
-                <text x="10" y="25" font-family="serif" font-size="18" fill="#a3ff4f">𑀅 𑀆 𑀇 𑀈 𑀉</text>
-                <text x="10" y="50" font-family="serif" font-size="18" fill="#a3ff4f" opacity="0.6">𑀊 𑀋 𑀌 𑀍 𑀎</text>
-              </svg>
-            </div>
-          </div>
+      <p class="section-label gsap-hidden">Our Stack</p>
+      <h2 class="section-title gsap-hidden">Technology</h2>
+      <div class="tech-grid">
+        <div class="tech-block gsap-hidden">
+          <p class="tech-block-title">Artificial Intelligence</p>
+          <p class="tech-block-list">TensorFlow CNN for script pattern classification</p>
         </div>
-
-        <div class="mobile-content">
-          <span class="section-label reveal">Mobile Experience</span>
-          <h2 class="section-title reveal reveal-delay-1">Akshara-Drishti Mobile App</h2>
-          <p class="section-desc reveal reveal-delay-2">
-            The Akshara-Drishti mobile application allows users to analyze inscriptions directly from their smartphones. By capturing a photo of an inscription, the app connects to the platform's AI engine and retrieves translations and historical insights instantly.
-          </p>
-          <div class="app-buttons reveal reveal-delay-3">
-            <a href="#" class="app-btn">
-              <i class="fab fa-apple"></i>
-              <div class="app-btn-text">
-                <small>Download on the</small>
-                <span>App Store</span>
-              </div>
-            </a>
-            <a href="#" class="app-btn">
-              <i class="fab fa-google-play"></i>
-              <div class="app-btn-text">
-                <small>Get it on</small>
-                <span>Google Play</span>
-              </div>
-            </a>
-          </div>
+        <div class="tech-block gsap-hidden">
+          <p class="tech-block-title">Computer Vision</p>
+          <p class="tech-block-list">Image preprocessing with CLAHE and edge enhancement</p>
+        </div>
+        <div class="tech-block gsap-hidden">
+          <p class="tech-block-title">Deep Learning Models</p>
+          <p class="tech-block-list">Convolutional neural networks trained on Indic scripts</p>
+        </div>
+        <div class="tech-block gsap-hidden">
+          <p class="tech-block-title">Image Recognition</p>
+          <p class="tech-block-list">Multi-class script identification from inscriptions</p>
+        </div>
+        <div class="tech-block gsap-hidden">
+          <p class="tech-block-title">Digital Epigraphy</p>
+          <p class="tech-block-list">Digital restoration of ancient inscriptions</p>
+        </div>
+        <div class="tech-block gsap-hidden">
+          <p class="tech-block-title">Web Platform</p>
+          <p class="tech-block-list">HTML, CSS, JavaScript frontend with Django API backend</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ======== RESOURCES SECTION ======== -->
-  <section class="section" id="resources">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Explore</span>
-        <h2 class="section-title">Resources</h2>
-        <p class="section-desc">Explore our comprehensive collection of tools and archives for inscription research.</p>
-      </div>
-      <div class="resources-grid">
-        <a href="#" class="resource-card reveal reveal-delay-1">
-          <div class="resource-icon"><i class="fas fa-magnifying-glass"></i></div>
-          <div>
-            <h3>Inscription Search Engine</h3>
-            <p>Search across thousands of cataloged inscriptions</p>
-          </div>
-          <i class="fas fa-arrow-right resource-arrow"></i>
-        </a>
-        <a href="#" class="resource-card reveal reveal-delay-2">
-          <div class="resource-icon"><i class="fas fa-book-open"></i></div>
-          <div>
-            <h3>Storytelling Platform</h3>
-            <p>Narratives behind historical inscriptions</p>
-          </div>
-          <i class="fas fa-arrow-right resource-arrow"></i>
-        </a>
-        <a href="#" class="resource-card reveal reveal-delay-3">
-          <div class="resource-icon"><i class="fas fa-mobile-screen"></i></div>
-          <div>
-            <h3>Mobile Application</h3>
-            <p>On-the-go inscription analysis</p>
-          </div>
-          <i class="fas fa-arrow-right resource-arrow"></i>
-        </a>
-        <a href="#" class="resource-card reveal reveal-delay-4">
-          <div class="resource-icon"><i class="fas fa-spell-check"></i></div>
-          <div>
-            <h3>Vocabulary of Ancient Scripts</h3>
-            <p>Glossary of characters and symbols</p>
-          </div>
-          <i class="fas fa-arrow-right resource-arrow"></i>
-        </a>
-        <a href="#" class="resource-card reveal reveal-delay-5">
-          <div class="resource-icon"><i class="fas fa-language"></i></div>
-          <div>
-            <h3>Translations</h3>
-            <p>Multilingual translation archives</p>
-          </div>
-          <i class="fas fa-arrow-right resource-arrow"></i>
-        </a>
-        <a href="#" class="resource-card reveal reveal-delay-6">
-          <div class="resource-icon"><i class="fas fa-bookmark"></i></div>
-          <div>
-            <h3>Bibliography</h3>
-            <p>Academic references and research papers</p>
-          </div>
-          <i class="fas fa-arrow-right resource-arrow"></i>
-        </a>
-        <a href="#" class="resource-card reveal reveal-delay-1">
-          <div class="resource-icon"><i class="fas fa-vr-cardboard"></i></div>
-          <div>
-            <h3>Virtual Exhibition</h3>
-            <p>Immersive digital gallery experience</p>
-          </div>
-          <i class="fas fa-arrow-right resource-arrow"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== TEAM SECTION ======== -->
-  <section class="team section" id="team">
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-label">Our People</span>
-        <h2 class="section-title">Research Team</h2>
-      </div>
-      <p class="team-name reveal">BhramiX</p>
-      <div class="team-grid">
-        <div class="team-card reveal reveal-delay-1">
-          <div class="team-avatar">AK</div>
-          <h3>Arun Krishnan L</h3>
-          <p class="role">Lead Researcher</p>
-        </div>
-        <div class="team-card reveal reveal-delay-2">
-          <div class="team-avatar">AN</div>
-          <h3>Aniket</h3>
-          <p class="role">AI Engineer</p>
-        </div>
-        <div class="team-card reveal reveal-delay-3">
-          <div class="team-avatar">TA</div>
-          <h3>Tarun</h3>
-          <p class="role">Data Scientist</p>
-        </div>
-        <div class="team-card reveal reveal-delay-4">
-          <div class="team-avatar">ES</div>
-          <h3>Eshwar</h3>
-          <p class="role">Full Stack Developer</p>
->>>>>>> 0a62233f757146de3acacd04416c361d287f2a65
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== CONTACT SECTION ======== -->
-  <section class="section" id="contact">
-    <div class="container">
-<<<<<<< HEAD
-      <div class="gsap-reveal">
-        <span class="section-label">Get in Touch</span>
-        <h2 class="section-title">Contact the Team</h2>
-        <p class="section-desc" style="margin-bottom: 40px;">For collaborations, research inquiries, or project information, reach out to the Akshara-Drishti development team.</p>
-      </div>
-      <form class="contact-form gsap-reveal" id="contactForm">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" placeholder="Your full name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="you@example.com" required>
-        </div>
-        <div class="form-group">
-          <label for="message">Message</label>
-          <textarea id="message" placeholder="Tell us about your research interest or inquiry..." required></textarea>
-        </div>
-        <button type="submit" class="btn-submit">Send Message</button>
-      </form>
-=======
-      <div class="section-header reveal">
-        <span class="section-label">Get in Touch</span>
-        <h2 class="section-title">Contact the Team</h2>
-        <p class="section-desc">For collaborations, research inquiries, or project information, reach out to the Akshara-Drishti development team.</p>
-      </div>
-      <div class="contact-grid">
-        <div class="contact-info reveal">
-          <div class="contact-item">
-            <div class="contact-item-icon"><i class="fas fa-envelope"></i></div>
-            <div>
-              <strong>Email</strong>
-              <p>team@aksharadrishti.ai</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div>
-              <strong>Location</strong>
-              <p>India</p>
-            </div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-item-icon"><i class="fas fa-globe"></i></div>
-            <div>
-              <strong>Research Domain</strong>
-              <p>AI &amp; Digital Epigraphy</p>
-            </div>
-          </div>
-        </div>
-        <form class="contact-form reveal reveal-delay-2" id="contactForm">
-          <div class="form-group">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Your full name" required>
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" placeholder="you@example.com" required>
-          </div>
-          <div class="form-group">
-            <label for="message">Message</label>
-            <textarea id="message" placeholder="Tell us about your research interest or inquiry..." required></textarea>
-          </div>
-          <button type="submit" class="btn-submit">
-            <i class="fas fa-paper-plane"></i> Send Message
-          </button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== CTA SECTION ======== -->
-  <section class="cta section">
-    <div class="container">
-      <div class="cta-content reveal">
-        <span class="section-label">Start Now</span>
-        <h2 class="section-title">Decode the Language of History</h2>
-        <p class="section-desc">Discover the stories carved in stone using the power of artificial intelligence.</p>
-        <div class="cta-buttons">
-          <a href="#resources" class="btn btn-primary">
-            <i class="fas fa-rocket"></i> Start Exploring
-          </a>
-          <a href="#how-it-works" class="btn btn-secondary">
-            <i class="fas fa-upload"></i> Upload an Inscription
-          </a>
-        </div>
-      </div>
->>>>>>> 0a62233f757146de3acacd04416c361d287f2a65
-    </div>
-  </section>
-
-  <!-- ======== FOOTER ======== -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-<<<<<<< HEAD
-          <a href="index.html" class="nav-logo">Akshara-Drishti</a>
-          <p>AI-Powered Indic Script Identification System. Bridging ancient heritage with modern artificial intelligence.</p>
-=======
-          <a href="#" class="nav-logo">AKSHARA-DRISHTI</a>
-          <p>AI-Powered Indic Script Intelligence System. Bridging ancient heritage with modern artificial intelligence.</p>
-          <div class="footer-social">
-            <a href="#" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
-            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="mailto:team@aksharadrishti.ai" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
-          </div>
->>>>>>> 0a62233f757146de3acacd04416c361d287f2a65
-        </div>
-        <div class="footer-links">
-          <h4>Navigation</h4>
-          <ul>
-<<<<<<< HEAD
-            <li><a href="index.html">Home</a></li>
-            <li><a href="upload.html">Upload</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-=======
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#technology">Technology</a></li>
-            <li><a href="#features">Features</a></li>
-          </ul>
-        </div>
-        <div class="footer-links">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="#team">Team</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#mobile-app">Mobile App</a></li>
->>>>>>> 0a62233f757146de3acacd04416c361d287f2a65
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Akshara-Drishti &mdash; BhramiX Research Team. All rights reserved.</p>
-      </div>
+      <p>&copy; 2026 Akshara-Drishti Research Project</p>
     </div>
   </footer>
 
-<<<<<<< HEAD
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-=======
->>>>>>> 0a62233f757146de3acacd04416c361d287f2a65
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

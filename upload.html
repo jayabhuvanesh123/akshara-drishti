@@ -1,100 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Upload an inscription image to Akshara-Drishti for AI-powered script identification and analysis.">
-  <title>Upload | Akshara-Drishti</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Upload — Akshara-Drishti</title>
+  <meta name="description" content="Upload an image of an ancient inscription to detect the script type using the Akshara-Drishti AI model." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-  <!-- ======== NAVIGATION ======== -->
-  <nav class="navbar" id="navbar">
+  <!-- Navbar -->
+  <nav class="navbar">
     <div class="container">
       <a href="index.html" class="nav-logo">Akshara-Drishti</a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="upload.html" class="active">Upload</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
-      </ul>
       <div class="hamburger" id="hamburger">
         <span></span>
         <span></span>
         <span></span>
       </div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="upload.html" class="active">Upload</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="about.html#contact">Contact</a></li>
+      </ul>
     </div>
   </nav>
 
-  <!-- ======== UPLOAD SECTION ======== -->
-  <section class="upload-section">
-    <div class="container">
-      <div class="upload-container">
-        <h1 class="section-title gsap-reveal" id="uploadTitle">Script Detection</h1>
-        <p class="section-desc gsap-reveal" id="uploadDesc">
-          Upload a photograph of an ancient inscription. The AI model will analyze the script patterns and identify the writing system.
+  <!-- Page Header -->
+  <header class="page-header">
+    <p class="section-label gsap-hidden">Script Detection</p>
+    <h1 class="section-title gsap-hidden">Upload Ancient Script Image</h1>
+    <p class="section-text gsap-hidden">
+      Upload an image of an inscription to detect the script type using our AI model.
+    </p>
+  </header>
+
+  <!-- Upload Interface -->
+  <div class="upload-wrapper">
+    <div class="card gsap-hidden" id="uploadCard">
+      <!-- Drop Zone -->
+      <div class="upload-zone" id="uploadZone">
+        <p class="upload-zone-text">
+          <strong>Drag and drop</strong> an image here
         </p>
+        <button class="btn-secondary" id="browseBtn">Browse Image</button>
+        <input type="file" id="fileInput" accept="image/*" hidden />
+      </div>
 
-        <!-- Drop Zone -->
-        <div class="upload-zone gsap-reveal" id="uploadZone">
-          <p>Drag and drop an image here</p>
-          <p class="hint">or</p>
-          <button class="browse-btn" id="browseBtn">Browse Image</button>
-          <input type="file" id="fileInput" accept="image/*" hidden>
-        </div>
+      <!-- Preview -->
+      <div class="upload-preview" id="uploadPreview">
+        <img id="previewImage" src="" alt="Uploaded inscription preview" />
+      </div>
 
-        <!-- Preview -->
-        <div class="preview-area" id="previewArea">
-          <img class="preview-image" id="previewImage" alt="Preview">
-          <p class="preview-name" id="previewName"></p>
-        </div>
+      <!-- Actions -->
+      <div class="upload-actions">
+        <button class="btn-primary" id="detectBtn" disabled>Detect Script</button>
+      </div>
 
-        <!-- Detect Button -->
-        <button class="detect-btn" id="detectBtn">Detect Script</button>
+      <!-- Loader -->
+      <div class="loader" id="loader"></div>
 
-        <!-- Results -->
-        <div class="results-panel" id="resultsPanel">
-          <div class="result-card">
-            <p class="result-label">Predicted Script</p>
-            <p class="result-value" id="predictedScript">—</p>
-            <p class="confidence-label">Confidence Score</p>
-            <div class="confidence-bar-bg">
-              <div class="confidence-bar" id="confidenceBar"></div>
-            </div>
-            <p class="confidence-value" id="confidenceValue">0%</p>
-          </div>
-        </div>
+      <!-- Results -->
+      <div class="result-card" id="resultCard">
+        <p class="result-label">Predicted Script</p>
+        <p class="result-value" id="resultScript">—</p>
+        <p class="result-confidence">Confidence Score: <span id="resultConfidence">—</span></p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- ======== FOOTER ======== -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-grid">
-        <div class="footer-brand">
-          <a href="index.html" class="nav-logo">Akshara-Drishti</a>
-          <p>AI-Powered Indic Script Identification System. Bridging ancient heritage with modern artificial intelligence.</p>
-        </div>
-        <div class="footer-links">
-          <h4>Navigation</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="upload.html">Upload</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="index.html#contact">Contact</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Akshara-Drishti &mdash; BhramiX Research Team. All rights reserved.</p>
-      </div>
+      <p>&copy; 2026 Akshara-Drishti Research Project</p>
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
   <script src="script.js"></script>
+  <script src="upload.js"></script>
 </body>
 </html>
