@@ -164,6 +164,12 @@ textarea {
 .nav-links {
   display: flex;
   gap: 36px;
+  list-style: none;
+}
+
+.nav-links li {
+  display: flex;
+  align-items: center;
 }
 
 .nav-links a {
@@ -228,12 +234,12 @@ textarea {
 
 /* ===== HERO ===== */
 .hero {
-  min-height: 100vh;
+  min-height: 75vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 160px 32px 100px;
+  padding: calc(var(--nav-height) + 48px) 32px 56px;
   position: relative;
   overflow: hidden;
 }
@@ -245,38 +251,38 @@ textarea {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -55%);
-  width: 700px;
-  height: 700px;
+  width: 600px;
+  height: 600px;
   background: radial-gradient(circle, rgba(158, 255, 61, 0.04) 0%, transparent 60%);
   pointer-events: none;
 }
 
 .hero-content {
-  max-width: 800px;
+  max-width: 780px;
   position: relative;
 }
 
 .hero-badge {
   display: inline-block;
-  padding: 7px 20px;
+  padding: 6px 18px;
   background: var(--accent-dim);
   border: 1px solid rgba(158, 255, 61, 0.15);
   border-radius: var(--radius-pill);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .hero-title {
   font-family: var(--font-heading);
-  font-size: 4.8rem;
+  font-size: 4rem;
   font-weight: 800;
-  letter-spacing: 0.06em;
-  line-height: 1.05;
-  margin-bottom: 20px;
+  letter-spacing: 0.05em;
+  line-height: 1.08;
+  margin-bottom: 14px;
   text-transform: uppercase;
   background: linear-gradient(135deg, #ffffff 0%, #d4d4d4 40%, var(--accent) 100%);
   -webkit-background-clip: text;
@@ -286,27 +292,27 @@ textarea {
 
 .hero-subtitle {
   font-family: var(--font-heading);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
   font-weight: 600;
   color: var(--accent-red);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  margin-bottom: 32px;
+  margin-bottom: 22px;
 }
 
 .hero-description {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.9;
-  margin-bottom: 48px;
-  max-width: 620px;
+  line-height: 1.85;
+  margin-bottom: 32px;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .hero-buttons {
   display: flex;
-  gap: 16px;
+  gap: 14px;
   justify-content: center;
   flex-wrap: wrap;
 }
@@ -376,6 +382,7 @@ textarea {
 /* ===== STATS BAR ===== */
 .stats-bar {
   padding: 0 32px;
+  margin-top: -8px;
   position: relative;
 }
 
@@ -393,21 +400,21 @@ textarea {
 
 .stat-item {
   background: var(--bg-card-solid);
-  padding: 36px 20px;
+  padding: 28px 16px;
   text-align: center;
 }
 
 .stat-value {
   font-family: var(--font-heading);
-  font-size: 2.2rem;
+  font-size: 1.9rem;
   font-weight: 800;
   color: var(--accent);
   line-height: 1;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .stat-label {
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1042,6 +1049,22 @@ textarea {
 
 /* ===== RESPONSIVE ===== */
 
+/* --- 1024px: Tablet landscape --- */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 3.2rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .section {
+    padding: 90px 24px;
+  }
+}
+
+/* --- 900px: Tablet --- */
 @media (max-width: 900px) {
   .features-grid,
   .tech-grid {
@@ -1051,40 +1074,62 @@ textarea {
   .stats-bar-inner {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .hero {
+    min-height: auto;
+    padding: calc(var(--nav-height) + 48px) 24px 48px;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
 }
 
+/* --- 768px: Mobile --- */
 @media (max-width: 768px) {
   .hamburger {
     display: flex;
   }
 
   .nav-links {
+    display: none;
     position: fixed;
     top: var(--nav-height);
     left: 0;
     width: 100%;
-    background: rgba(5, 5, 5, 0.96);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(5, 5, 5, 0.97);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
     border-bottom: 1px solid var(--border);
     flex-direction: column;
     align-items: center;
     gap: 0;
-    padding: 20px 0;
-    transform: translateY(-110%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 16px 0;
     z-index: 999;
   }
 
   .nav-links.open {
-    transform: translateY(0);
+    display: flex;
+  }
+
+  .nav-links li {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
   .nav-links a {
-    padding: 16px 0;
+    display: block;
+    padding: 14px 0;
     width: 100%;
     text-align: center;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--accent);
   }
 
   .nav-links a::after {
@@ -1092,21 +1137,30 @@ textarea {
   }
 
   .hero {
-    padding: 130px 20px 80px;
+    min-height: auto;
+    padding: calc(var(--nav-height) + 40px) 20px 40px;
   }
 
   .hero-title {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
     letter-spacing: 0.03em;
   }
 
   .hero-subtitle {
-    font-size: 0.82rem;
+    font-size: 0.78rem;
     letter-spacing: 0.1em;
+    margin-bottom: 16px;
+  }
+
+  .hero-badge {
+    margin-bottom: 16px;
+    font-size: 0.65rem;
   }
 
   .hero-description {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+    margin-bottom: 28px;
+    line-height: 1.75;
   }
 
   .hero-buttons {
@@ -1115,12 +1169,32 @@ textarea {
     gap: 12px;
   }
 
+  .stats-bar {
+    margin-top: 0;
+  }
+
+  .stats-bar-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-item {
+    padding: 22px 12px;
+  }
+
+  .stat-value {
+    font-size: 1.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.68rem;
+  }
+
   .section {
-    padding: 80px 20px;
+    padding: 72px 20px;
   }
 
   .section-title {
-    font-size: 1.75rem;
+    font-size: 1.7rem;
   }
 
   .features-grid,
@@ -1132,7 +1206,7 @@ textarea {
   .steps-timeline {
     flex-direction: column;
     align-items: center;
-    gap: 32px;
+    gap: 28px;
   }
 
   .step-item:not(:last-child)::after {
@@ -1140,7 +1214,7 @@ textarea {
     left: 50%;
     right: auto;
     width: 1px;
-    height: 32px;
+    height: 28px;
     transform: translateX(-50%);
     background: linear-gradient(180deg, rgba(158, 255, 61, 0.3), rgba(158, 255, 61, 0.05));
   }
@@ -1150,19 +1224,15 @@ textarea {
   }
 
   .upload-wrapper {
-    padding: 0 20px 80px;
+    padding: 0 20px 72px;
   }
 
   .btn-primary,
   .btn-secondary {
-    padding: 16px 36px;
-    font-size: 0.92rem;
+    padding: 15px 32px;
+    font-size: 0.9rem;
     width: 100%;
     text-align: center;
-  }
-
-  .stat-value {
-    font-size: 1.7rem;
   }
 
   .marquee-band {
@@ -1170,9 +1240,37 @@ textarea {
   }
 }
 
+/* --- 480px: Small mobile --- */
 @media (max-width: 480px) {
+  .hero {
+    padding: calc(var(--nav-height) + 32px) 16px 32px;
+  }
+
   .hero-title {
-    font-size: 2.1rem;
+    font-size: 1.9rem;
+    letter-spacing: 0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: 0.72rem;
+    margin-bottom: 14px;
+  }
+
+  .hero-description {
+    font-size: 0.85rem;
+    margin-bottom: 24px;
+  }
+
+  .stats-bar-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-item {
+    padding: 18px 12px;
+  }
+
+  .stat-value {
+    font-size: 1.4rem;
   }
 
   .team-grid {
@@ -1183,7 +1281,11 @@ textarea {
     font-size: 3.5rem;
   }
 
-  .stats-bar-inner {
-    grid-template-columns: 1fr;
+  .section {
+    padding: 56px 16px;
+  }
+
+  .section-title {
+    font-size: 1.45rem;
   }
 }
