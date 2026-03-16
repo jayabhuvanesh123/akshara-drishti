@@ -1,4 +1,4 @@
-/* ===== Akshara-Drishti — Upload Page Script ===== */
+/* ===== Akshara-Drishti — Enhanced Upload Script ===== */
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const resultCard = document.getElementById('resultCard');
   const resultScript = document.getElementById('resultScript');
   const resultConfidence = document.getElementById('resultConfidence');
+  const confidenceBar = document.getElementById('confidenceBar');
 
   let selectedFile = null;
 
@@ -64,7 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Hide previous results
       resultCard.classList.remove('visible');
-      gsap.set(resultCard, { opacity: 0, y: 16 });
+      if (confidenceBar) confidenceBar.style.width = '0%';
+      gsap.set(resultCard, { opacity: 0, y: 20 });
+
+      // Animate preview in
+      gsap.fromTo(previewContainer,
+        { opacity: 0, scale: 0.95 },
+        { opacity: 1, scale: 1, duration: 0.5, ease: 'power2.out' }
+      );
     };
     reader.readAsDataURL(file);
   }
@@ -77,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loader.classList.add('active');
     resultCard.classList.remove('visible');
 
-    // Simulate AI processing delay
+    // Simulate AI processing
     setTimeout(() => {
       const scripts = ['Tamil', 'Brahmi', 'Grantha', 'Devanagari'];
       const predicted = scripts[Math.floor(Math.random() * scripts.length)];
@@ -89,14 +97,25 @@ document.addEventListener('DOMContentLoaded', () => {
       loader.classList.remove('active');
       resultCard.classList.add('visible');
 
-      // GSAP reveal animation
-      gsap.fromTo(resultCard,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }
+      // Staggered GSAP reveal
+      const tl = gsap.timeline();
+      
+      tl.fromTo(resultCard,
+        { opacity: 0, y: 24 },
+        { opacity: 1, y: 0, duration: 0.6, ease: 'power3.out' }
       );
 
+      // Animate confidence bar
+      if (confidenceBar) {
+        tl.to(confidenceBar, {
+          width: confidence + '%',
+          duration: 1,
+          ease: 'power2.out',
+        }, '-=0.3');
+      }
+
       detectBtn.disabled = false;
-    }, 1500);
+    }, 1800);
   });
 
 });

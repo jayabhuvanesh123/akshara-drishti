@@ -33,6 +33,9 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-content">
+      <div class="gsap-hidden" id="heroBadge">
+        <span class="hero-badge">Ancient Script Research Platform</span>
+      </div>
       <h1 class="hero-title gsap-hidden" id="heroTitle">Akshara-Drishti</h1>
       <p class="hero-subtitle gsap-hidden" id="heroSubtitle">AI Powered Indic Script Identification</p>
       <p class="hero-description gsap-hidden" id="heroDesc">
@@ -47,6 +50,50 @@
     </div>
   </section>
 
+  <!-- Stats Bar -->
+  <div class="stats-bar gsap-hidden" id="statsBar">
+    <div class="stats-bar-inner">
+      <div class="stat-item">
+        <p class="stat-value" data-count="4">4+</p>
+        <p class="stat-label">Script Types</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-value" data-count="95">95%</p>
+        <p class="stat-label">Accuracy Rate</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-value" data-count="1000">1K+</p>
+        <p class="stat-label">Training Samples</p>
+      </div>
+      <div class="stat-item">
+        <p class="stat-value" data-count="3">3s</p>
+        <p class="stat-label">Detection Speed</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Marquee Band -->
+  <div class="marquee-band">
+    <div class="marquee-track">
+      <span>Brahmi</span><span class="accent-dot">&middot;</span>
+      <span>Tamil</span><span class="accent-dot">&middot;</span>
+      <span>Grantha</span><span class="accent-dot">&middot;</span>
+      <span>Devanagari</span><span class="accent-dot">&middot;</span>
+      <span>Computer Vision</span><span class="accent-dot">&middot;</span>
+      <span>Deep Learning</span><span class="accent-dot">&middot;</span>
+      <span>TensorFlow</span><span class="accent-dot">&middot;</span>
+      <span>Digital Epigraphy</span><span class="accent-dot">&middot;</span>
+      <span>Brahmi</span><span class="accent-dot">&middot;</span>
+      <span>Tamil</span><span class="accent-dot">&middot;</span>
+      <span>Grantha</span><span class="accent-dot">&middot;</span>
+      <span>Devanagari</span><span class="accent-dot">&middot;</span>
+      <span>Computer Vision</span><span class="accent-dot">&middot;</span>
+      <span>Deep Learning</span><span class="accent-dot">&middot;</span>
+      <span>TensorFlow</span><span class="accent-dot">&middot;</span>
+      <span>Digital Epigraphy</span><span class="accent-dot">&middot;</span>
+    </div>
+  </div>
+
   <!-- Features -->
   <section class="section">
     <div class="container">
@@ -55,18 +102,21 @@
       <div class="features-grid">
         <div class="feature-card gsap-hidden">
           <span class="feature-number">01</span>
+          <div class="feature-accent"></div>
           <p class="feature-title">Script Recognition</p>
-          <p class="feature-desc">Identify ancient writing systems like Brahmi, Tamil, Grantha, and Devanagari from a single photograph.</p>
+          <p class="feature-desc">Identify ancient writing systems like Brahmi, Tamil, Grantha, and Devanagari from a single photograph of an inscription.</p>
         </div>
         <div class="feature-card gsap-hidden">
           <span class="feature-number">02</span>
+          <div class="feature-accent"></div>
           <p class="feature-title">Image Restoration</p>
-          <p class="feature-desc">Digital preprocessing restores weathered inscriptions using CLAHE, edge enhancement, and noise reduction.</p>
+          <p class="feature-desc">Digital preprocessing restores weathered inscriptions using CLAHE, edge enhancement, and noise reduction techniques.</p>
         </div>
         <div class="feature-card gsap-hidden">
           <span class="feature-number">03</span>
+          <div class="feature-accent"></div>
           <p class="feature-title">Confidence Scoring</p>
-          <p class="feature-desc">Each prediction comes with a confidence metric, helping researchers assess the reliability of the classification.</p>
+          <p class="feature-desc">Each prediction comes with a confidence metric, helping researchers assess the reliability of the classification result.</p>
         </div>
       </div>
     </div>
