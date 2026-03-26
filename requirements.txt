@@ -1,0 +1,6 @@
+flask>=3.0
+flask-cors>=4.0
+tensorflow>=2.15.0
+opencv-python-headless>=4.8
+pillow>=10.0
+numpy>=1.24
