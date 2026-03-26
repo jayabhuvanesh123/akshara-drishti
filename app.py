@@ -35,9 +35,9 @@ def load_model():
     try:
         import tensorflow as tf
         model = tf.keras.models.load_model(MODEL_PATH)
-        print(f"✅ Model loaded from: {MODEL_PATH}")
+        print(f"[OK] Model loaded from: {MODEL_PATH}")
     except Exception as e:
-        print(f"⚠️  Could not load model: {e}")
+        print(f"[WARNING] Could not load model: {e}")
         model = None
 
 
