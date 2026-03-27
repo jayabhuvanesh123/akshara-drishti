@@ -20,7 +20,7 @@ logging.basicConfig(
 logger = logging.getLogger("AksharaDrishti")
 
 # ── Configuration ────────────────────────────────────────────────────────────
-IMG_SIZE = 224
+IMG_SIZE = 96
 CLASS_NAMES = ["brahmi", "devanagari", "tamil"]  # alphabetical — matches tf dataset order
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10 MB
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "webp"}

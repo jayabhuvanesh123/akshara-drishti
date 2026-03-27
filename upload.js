@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Constants ──────────────────────────────────────────────────────────────
   const MAX_FILE_SIZE   = 10 * 1024 * 1024; // 10 MB
-  const ALLOWED_TYPES   = ['image/png', 'image/jpeg', 'image/jpg'];
+  const ALLOWED_TYPES   = ['image/png', 'image/jpeg', 'image/jpg', 'image/webp'];
   const REQUEST_TIMEOUT = 15000; // 15 seconds
 
   // ── Processing Flag (prevents duplicate API calls) ─────────────────────────
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (!ALLOWED_TYPES.includes(file.type.toLowerCase())) {
-      showError('Only PNG, JPG, and JPEG images are allowed.');
+      showError('Only PNG, JPG, JPEG, and WebP images are allowed.');
       return false;
     }
 
