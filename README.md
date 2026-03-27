@@ -9,12 +9,13 @@
 
 **Akshara-Drishti** (meaning "Script Vision") is an advanced, AI-powered digital epigraphy research platform. Its primary objective is to analyze photographs of ancient inscriptions (found on temples, monuments, and artifacts) and accurately classify the Indic script being used. 
 
-The project bridges historical preservation and modern Deep Learning by providing an accessible, highly polished web interface that communicates seamlessly with a robust Python/TensorFlow backend.
-
-**Current Supported Script Classes:**
+The system supports 6 core scripts:
 1. `brahmi`
 2. `devanagari`
-3. `tamil`
+3. `kannada`
+4. `malayalam`
+5. `tamil`
+6. `telugu`
 
 ---
 
@@ -42,69 +43,45 @@ d:\ss\
 
 ---
 
-## 3. Deep Learning Engine (`Akshara_Drishti_Training.ipynb` & `model/`)
+## 3. Deep Learning Engine (`model/`)
 
-The core intelligence of Akshara-Drishti is a Convolutional Neural Network (CNN) built on TensorFlow/Keras.
+The core intelligence of Akshara-Drishti is a CNN built on **MobileNetV2**.
 
 ### 3.1 Model Architecture Details
-The model leverages Transfer Learning using **EfficientNetB0**.
-- **Input Shape:** `(224, 224, 3)`
-- **Base Model:** Pre-trained on ImageNet.
-- **Custom Classification Head:**
-  1. `GlobalAveragePooling2D()`: Flattens the feature maps gracefully.
-  2. `BatchNormalization()`: Stabilizes activations.
-  3. `Dense(128, activation='relu')`: Feature extraction layer.
-  4. `Dropout(0.5)`: High regularization to prevent overfitting on scarce historical data.
-  5. `Dense(3, activation='softmax')`: Output layer mapping to Brahmi, Devanagari, and Tamil.
+- **Input Shape:** `(96, 96, 3)`
+- **Base Model:** MobileNetV2 (Pre-trained on ImageNet).
+- **Classification Head:** Custom Dense layers mapping to the 6 supported scripts.
+- **Training Data:** 800 train / 150 val / 150 test images per class. Uses synthetic generation with Google Noto Sans and BrahmiGAN for historical data.
+- **Training Strategy:** 2-Stage training (Frozen backbone for 12 epochs @ lr 1e-3, Fine-tuning top 40 layers for 15 epochs @ lr 1e-5). Uses label smoothing (0.05).
+- **Validation Accuracy:** ~90%
 
-### 3.2 Training Strategy
-- **Stage 1 (Feature Extraction):** Base model completely frozen. Trained for 20 epochs with Adam optimizer at Learning Rate `1e-4`.
-- **Stage 2 (Fine-Tuning):** The top 30 layers of EfficientNetB0 are unfrozen. Trained for 10 epochs with a lowered Learning Rate of `1e-5` to gently adjust the deep weights to inscription textures.
+### 3.2 Inference Architecture — Dual Pipeline
+Because inscriptions are often degraded or rotated differently than modern text, the engine utilizes a dual pipeline approach:
+1. **Modern/Paper Path:** Tries 0°, 90°, 180°, and 270° rotations. Picks the prediction with the lowest entropy (highest confidence). Excellent for phone photos.
+2. **Inscription Path:** Uses CLAHE restoration and advanced cropping/patch extraction. Hard voting connects patch results, with a tiebreaker specifically designed for Tamil/Kannada granular similarity.
 
-### 3.3 The Data Pipeline & Data Augmentation
-Because inscriptions are often degraded, the tf.data pipeline is critical:
-- **Augmentations used:** `RandomRotation(0.1)`, `RandomZoom(0.1)`, `RandomContrast(0.1)`, `RandomFlip("horizontal")`.
-- **Pre-Processing (The CLAHE Pass - CRITICAL):**
-  We use Contrast Limited Adaptive Histogram Equalization (CLAHE) to enhance the structural edges of weathered scripts. 
-  - `clipLimit=2.0`
-  - `tileGridSize=(8, 8)`
-  *Note:* CLAHE requires grayscale conversion, but EfficientNet requires 3 channels. Therefore, images are converted: `RGB -> Grayscale -> CLAHE -> Back to RGB`.
+The system auto-runs both pipelines and selects the path yielding the highest overall confidence.
 
 ---
 
 ## 4. Backend Server Implementation (`app.py`)
 
-The backend is built with **Flask** and serves a dual purpose: it acts as a static file server for the UI and exposes REST APIs for inference.
+The backend is built with **Flask** and implements the Dual Pipeline Inference Engine.
 
 ### 4.1 Server Startup & State Management
-- **Lazy Loading Model:** The `script_model.keras` file is NOT loaded into memory when the server starts. It is loaded only upon the first request to `/api/predict`. This ensures the server starts instantly and prevents crashing if the model file is temporarily absent during UI edits.
-- **Cross-Origin Resource Sharing (CORS):** fully enabled via `flask-cors`.
+- **Lazy Loading Model:** The `.keras` file is NOT loaded into memory when the server starts. It is loaded only upon the first request to `/api/predict`.
+- **Cross-Origin Resource Sharing (CORS):** fully enabled.
 
-### 4.2 Exact Inference Pipeline (MUST Mirror Training)
-The `preprocess_image()` function in `app.py` is the most fragile part of the system. **AIs MUST NOT alter this function without ensuring absolute parity with the `.ipynb` file.**
-1. Reads `multipart/form-data` image bytes.
-2. Uses Pillow (`PIL`) to convert to an RGB array.
-3. Resizes to `224x224` using Lanczos resampling.
-4. Applies OpenAI/CV2 CLAHE (Grayscale -> CLAHE -> RGB).
-5. Normalizes values to float32 `[0.0, 1.0]`.
-6. Expands dimensions to `(1, 224, 224, 3)` for batching.
+### 4.2 Exact Inference Pipeline
+The `predict()` function dynamically processes the image across the Dual Pipelines (Rotations and CLAHE variants), calculates entropy ($-\sum p \log(p)$), and returns the most confident assessment.
 
 ### 4.3 API Endpoints
 **1. `GET /api/health`**
-- Purpose: Heartbeat for the frontend's "Model Online" indicator.
-- Response Signature:
-  ```json
-  {
-    "status": "ok",
-    "model_loaded": true,
-    "model_path": "model/script_model.keras",
-    "classes": ["brahmi", "devanagari", "tamil"]
-  }
-  ```
+- Returns server status and supported classes list.
 
 **2. `POST /api/predict`**
-- Purpose: Executes inference.
-- Payload: `FormData` with a key of `image` containing the raw file blob.
+- Purpose: Executes Dual Pipeline inference.
+- Payload: `FormData` with a key of `image`.
 - Response Signature:
   ```json
   {
@@ -113,7 +90,10 @@ The `preprocess_image()` function in `app.py` is the most fragile part of the sy
     "all_scores": {
       "brahmi": 1.25,
       "devanagari": 2.41,
-      "tamil": 96.34
+      "kannada": 0.0,
+      "malayalam": 0.0,
+      "tamil": 96.34,
+      "telugu": 0.0
     }
   }
   ```

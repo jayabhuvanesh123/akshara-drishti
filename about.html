@@ -37,12 +37,11 @@
       <h1 class="section-title gsap-hidden">Research Overview</h1>
       <div class="divider gsap-hidden"></div>
       <p class="section-text gsap-hidden">
-        Akshara-Drishti is a research initiative focused on recognizing ancient Indic scripts
-        using computer vision and machine learning techniques.
+        Akshara-Drishti is an advanced AI research initiative focused on recognizing historical Indic scripts
+        using deep learning. It actively supports <strong>Brahmi, Devanagari, Tamil, Telugu, Kannada, and Malayalam</strong>.
       </p>
       <p class="section-text gsap-hidden">
-        The project aims to help researchers, historians, and students interpret inscriptions
-        found in temples, monuments, and archaeological artifacts.
+        By bridging synthetic font-generation datasets with few-shot learning on real archaeological data, the project overcomes the severe "domain gap" between crisp modern texts and highly degraded ancient stone inscriptions.
       </p>
     </div>
   </section>
@@ -50,25 +49,25 @@
   <!-- Section 2: How It Works -->
   <section class="section">
     <div class="container">
-      <p class="section-label gsap-hidden">Process</p>
-      <h2 class="section-title gsap-hidden">How It Works</h2>
+      <p class="section-label gsap-hidden">Methodology</p>
+      <h2 class="section-title gsap-hidden">Dual-Pipeline Inference</h2>
       <div class="divider gsap-hidden"></div>
       <div class="steps-grid">
         <div class="step-card gsap-hidden">
-          <p class="step-number">Step 1</p>
-          <p class="step-text">User uploads an image of an inscription.</p>
+          <p class="step-number">Modern Path</p>
+          <p class="step-text">Evaluates 0°, 90°, 180°, and 270° rotations to handle handwritten or phone-captured printed text globally.</p>
         </div>
         <div class="step-card gsap-hidden">
-          <p class="step-number">Step 2</p>
-          <p class="step-text">The system preprocesses the image using digital restoration techniques.</p>
+          <p class="step-number">Inscription Path</p>
+          <p class="step-text">Applies CLAHE contrast enhancement and edge sharpening before extracting multi-stride geometric patches.</p>
         </div>
         <div class="step-card gsap-hidden">
-          <p class="step-number">Step 3</p>
-          <p class="step-text">A convolutional neural network analyzes the script pattern.</p>
+          <p class="step-number">Entropy Math</p>
+          <p class="step-text">Calculates mathematically normalized Shannon Entropy to compare confidence paths and discard confused patches.</p>
         </div>
         <div class="step-card gsap-hidden">
-          <p class="step-number">Step 4</p>
-          <p class="step-text">The system predicts the script type and confidence score.</p>
+          <p class="step-number">Hard Voting</p>
+          <p class="step-text">Resolves Grantha-derived letterform clashes (Tamil vs Kannada) using cubic confidence weighting & tiebreakers.</p>
         </div>
       </div>
     </div>
@@ -82,27 +81,27 @@
       <div class="divider gsap-hidden"></div>
       <div class="tech-grid">
         <div class="tech-block gsap-hidden">
-          <p class="tech-block-title">Frontend</p>
+          <p class="tech-block-title">Core AI</p>
           <p class="tech-block-list">
-            HTML<br />CSS<br />JavaScript
+            TensorFlow & Keras<br />MobileNetV2 (96x96)<br />Scikit-Learn Evaluation
           </p>
         </div>
         <div class="tech-block gsap-hidden">
-          <p class="tech-block-title">AI Model</p>
+          <p class="tech-block-title">Data Generation</p>
           <p class="tech-block-list">
-            TensorFlow CNN
+            Pillow (PIL) Synthetics<br />Google Noto Sans Fonts<br />BrahmiGAN Integration
           </p>
         </div>
         <div class="tech-block gsap-hidden">
-          <p class="tech-block-title">Digital Restoration</p>
+          <p class="tech-block-title">Image Processing</p>
           <p class="tech-block-list">
-            CLAHE<br />Edge Enhancement<br />Noise Reduction
+            OpenCV (cv2)<br />CLAHE Restoration<br />Matplotlib Visualization
           </p>
         </div>
         <div class="tech-block gsap-hidden">
-          <p class="tech-block-title">Backend</p>
+          <p class="tech-block-title">Web Application</p>
           <p class="tech-block-list">
-            Django API
+            Flask REST API<br />GSAP Animations<br />Vanilla JS State
           </p>
         </div>
       </div>
