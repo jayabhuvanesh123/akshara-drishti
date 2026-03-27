@@ -1,0 +1,9 @@
+[build]
+  # Tell Netlify not to run any build tools (like pip) for the python backend
+  command = "echo 'Deploying static frontend site...'"
+  publish = "."
+
+[build.environment]
+  # Explicitly disable Python builds to prevent TensorFlow installation errors
+  PYTHON_VERSION = "3.10"
+  PIP_REQUIREMENTS_PATH = "none"
