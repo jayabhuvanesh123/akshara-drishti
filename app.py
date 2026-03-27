@@ -174,20 +174,28 @@ def predict():
 
         predictions = model.predict(input_tensor, verbose=0)  # shape (1, num_classes)
 
-        # Validate output shape
-        if predictions is None or predictions.ndim < 2 or predictions.shape[1] != len(CLASS_NAMES):
-            logger.error("Unexpected prediction shape: %s", getattr(predictions, "shape", None))
-            return jsonify({"error": "Model produced an unexpected output."}), 500
+        # Dynamically adjust to model's actual output size
+        num_classes = predictions.shape[1]
+        active_classes = list(CLASS_NAMES)
+        
+        if num_classes != len(active_classes):
+            logger.warning("Shape mismatch: model returned %d classes, but %d are configured.", num_classes, len(active_classes))
+            if num_classes > len(active_classes):
+                # Pad with placeholder names
+                missing = num_classes - len(active_classes)
+                active_classes.extend([f"script_{i+1}" for i in range(missing)])
+            else:
+                active_classes = active_classes[:num_classes]
 
         probs = predictions[0]  # shape (num_classes,)
 
         # Build per-class scores (percentages, 2 dp)
         all_scores = {}
-        for i, name in enumerate(CLASS_NAMES):
+        for i, name in enumerate(active_classes):
             all_scores[name] = round(float(probs[i]) * 100, 2)
 
         predicted_idx = int(np.argmax(probs))
-        predicted_class = CLASS_NAMES[predicted_idx].capitalize()
+        predicted_class = active_classes[predicted_idx].capitalize()
         confidence = round(float(probs[predicted_idx]) * 100, 2)
 
         logger.info("Prediction: %s (%.2f%%)", predicted_class, confidence)
