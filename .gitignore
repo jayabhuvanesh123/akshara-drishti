@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+.venv/
+*.egg-info/
+dist/
+build/
+
+# Large model zip (the extracted .keras file in model/ is what matters)
+script_model.keras.zip
