@@ -20,7 +20,7 @@ logging.basicConfig(
 logger = logging.getLogger("AksharaDrishti")
 
 # ── Configuration ────────────────────────────────────────────────────────────
-IMG_SIZE = 96
+IMG_SIZE = 224
 CLASS_NAMES = ["brahmi", "devanagari", "tamil"]  # alphabetical — matches tf dataset order
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10 MB
 ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "webp"}
@@ -63,47 +63,29 @@ def _get_model():
     return _model
 
 
-# ── Image Preprocessing (strict pipeline) ───────────────────────────────────
+# ── Image Preprocessing (Strict Match to Training) ──────────────────────────
 def preprocess_image(image_bytes: bytes) -> np.ndarray:
     """
-    Replicate the training pipeline:
+    Replicate the training pipeline EXACTLY (Option A: Simple Preprocessing):
       1. Open & convert to RGB
-      2. Resize to IMG_SIZE × IMG_SIZE
-      3. Convert to grayscale
-      4. Apply CLAHE contrast enhancement
-      5. Apply Canny edge detection
-      6. Combine CLAHE + edges via weighted sum
-      7. Convert back to RGB
-      8. Normalise to float32 [0, 1]
-      9. Expand to batch dimension
+      2. Resize to IMG_SIZE × IMG_SIZE (224x224)
+      3. Convert to numpy array
+      4. Normalise to float32 [0, 1]
+      5. Expand to batch dimension
+      
+    No CLAHE or edge detection to ensure identical spatial distribution.
     """
-    import cv2
-
-    # 1 — Open with Pillow, resize, convert to numpy
+    # 1 & 2 — Open with Pillow, convert to RGB, resize
     img = Image.open(io.BytesIO(image_bytes)).convert("RGB")
     img = img.resize((IMG_SIZE, IMG_SIZE), Image.LANCZOS)
+    
+    # 3 — Convert to numpy array
     arr = np.array(img, dtype=np.uint8)
 
-    # 2 — Grayscale
-    gray = cv2.cvtColor(arr, cv2.COLOR_RGB2GRAY)
-
-    # 3 — CLAHE
-    clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
-    enhanced = clahe.apply(gray)
-
-    # 4 — Canny edge detection
-    edges = cv2.Canny(enhanced, threshold1=50, threshold2=150)
-
-    # 5 — Combine CLAHE + edges (weighted sum)
-    combined = cv2.addWeighted(enhanced, 0.7, edges, 0.3, 0)
-
-    # 6 — Back to 3-channel RGB
-    arr = cv2.cvtColor(combined, cv2.COLOR_GRAY2RGB)
-
-    # 7 — Normalise to float32 [0, 1]
+    # 4 — Normalise to float32 [0, 1]
     arr = arr.astype(np.float32) / 255.0
 
-    # 8 — Batch dimension → (1, 224, 224, 3)
+    # 5 — Batch dimension → (1, 224, 224, 3)
     return np.expand_dims(arr, axis=0)
 
 
@@ -174,28 +156,20 @@ def predict():
 
         predictions = model.predict(input_tensor, verbose=0)  # shape (1, num_classes)
 
-        # Dynamically adjust to model's actual output size
-        num_classes = predictions.shape[1]
-        active_classes = list(CLASS_NAMES)
-        
-        if num_classes != len(active_classes):
-            logger.warning("Shape mismatch: model returned %d classes, but %d are configured.", num_classes, len(active_classes))
-            if num_classes > len(active_classes):
-                # Pad with placeholder names
-                missing = num_classes - len(active_classes)
-                active_classes.extend([f"script_{i+1}" for i in range(missing)])
-            else:
-                active_classes = active_classes[:num_classes]
+        # Ensure strict length of class names matches the output shape
+        if predictions is None or predictions.ndim < 2 or predictions.shape[1] != len(CLASS_NAMES):
+            logger.error("Unexpected prediction shape: %s", getattr(predictions, "shape", None))
+            return jsonify({"error": "Model produced an unexpected output."}), 500
 
-        probs = predictions[0]  # shape (num_classes,)
+        probs = predictions[0]  # shape (3,)
 
         # Build per-class scores (percentages, 2 dp)
         all_scores = {}
-        for i, name in enumerate(active_classes):
+        for i, name in enumerate(CLASS_NAMES):
             all_scores[name] = round(float(probs[i]) * 100, 2)
 
         predicted_idx = int(np.argmax(probs))
-        predicted_class = active_classes[predicted_idx].capitalize()
+        predicted_class = CLASS_NAMES[predicted_idx].capitalize()
         confidence = round(float(probs[predicted_idx]) * 100, 2)
 
         logger.info("Prediction: %s (%.2f%%)", predicted_class, confidence)
