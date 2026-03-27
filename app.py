@@ -23,12 +23,12 @@ logger = logging.getLogger("AksharaDrishti")
 IMG_SIZE = 224
 CLASS_NAMES = ["brahmi", "devanagari", "tamil"]  # alphabetical — matches tf dataset order
 MAX_FILE_SIZE = 10 * 1024 * 1024  # 10 MB
-ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg"}
+ALLOWED_EXTENSIONS = {"png", "jpg", "jpeg", "webp"}
 
 # Path to the trained model file.
 MODEL_PATH = os.environ.get(
     "MODEL_PATH",
-    os.path.join(os.path.dirname(__file__), "model", "script_model.keras"),
+    os.path.join(os.path.dirname(__file__), "model", "final_model.keras"),
 )
 
 # ── App Setup ────────────────────────────────────────────────────────────────
@@ -150,7 +150,7 @@ def predict():
 
     if not _allowed_file(file.filename):
         logger.warning("Disallowed file type: %s", file.filename)
-        return jsonify({"error": "Only PNG, JPG, and JPEG images are allowed."}), 400
+        return jsonify({"error": "Only PNG, JPG, JPEG, and WebP images are allowed."}), 400
 
     # ── Read file and check size ─────────────────────────────────────────────
     image_bytes = file.read()
@@ -164,7 +164,7 @@ def predict():
     if model is None:
         logger.error("Model not available for prediction.")
         return (
-            jsonify({"error": "Model not available. Place 'script_model.keras' in the model/ directory."}),
+            jsonify({"error": "Model not available. Place 'final_model.keras' in the model/ directory."}),
             503,
         )
 
